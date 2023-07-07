@@ -1,0 +1,331 @@
+@font-face {
+    src: url('fonts/NanumGothic-Bold.ttf');
+}
+
+@font-face {
+    src: url('fonts/NanumGothic-Regular.ttf');
+}
+
+@font-face {
+    src: url('fonts/CinzelDecorative-Regular.ttf');
+}
+
+@font-face {
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
+}
+
+
+.nanum-regular{
+    -fx-font-family: "NanumGothic";
+}
+
+.nanum-bold{
+    -fx-font-family: "NanumGothicBold";
+}
+
+.cinzel-regular {
+    -fx-font-family: "Cinzel Decorative Regular";
+}
+
+.playfair-regular{
+    -fx-font-family: "Playfair Display Regular";
+}
+
+/*BOTON OSCURO - SE REUTILIZA SIEMPRE*/
+.button-oscuro{
+    -fx-font-size: 17;
+    -fx-background-color: "#29838c";
+    -fx-text-fill: "#c6e9de";
+    -fx-font-family: "NanumGothicBold";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+.button-oscuro:hover {
+    -fx-background-color: "#23737A";
+}
+.button-oscuro:pressed {
+    -fx-background-color: "#C4E8DD";
+    -fx-text-fill: "#29838c";
+}
+
+/*BOTON CLARO - SE REUTILIZA SIEMPRE*/
+.button-claro{
+    -fx-font-size: 17;
+    -fx-background-color: "#c6e9de";
+    -fx-text-fill: "#29838c";
+    -fx-font-family: "NanumGothicBold";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+.button-claro:hover{
+    -fx-background-color: "#b4d4ca";
+}
+.button-claro:pressed{
+    -fx-background-color: "#29838c";
+    -fx-text-fill: "#c6e9de";
+}
+
+/*LINKS TIPO: OLVIDÉ CONTRASEÑA / USUARIO */
+.forget-link{
+    -fx-color: "#255951";
+    -fx-font-size: 17;
+}
+.forget-link:hover{
+    -fx-font-size: 18;
+}
+.text-field{
+    -fx-text-fill: "#255951";
+    -fx-font-size: 17;
+}
+
+/*BOTON DE PERFIL - REUTILIZADO */
+.profile-button{
+    -fx-font-size: 20;
+    -fx-text-fill: "#D3F9EB";
+}
+.profile-button:hover{
+    -fx-text-fill: "#FFE9BF";
+}
+.profile-button:pressed{
+    -fx-font-size: 19;
+    -fx-text-fill: "#FDC373";
+}
+
+/*CHECK BOX - REUTILIZADO */
+
+.check .box{
+    -fx-background-color: #C6E9DE;
+    -fx-border-color: #29838C;
+    -fx-border-width: 2;
+    -fx-width: 20;
+    -fx-height: 20;
+    -fx-check-mark-color: "#29838C";
+    -fx-check-mark-stroke: "C6E9DE";
+}
+
+.check .box:hover{
+    -fx-background-color: #FFE9BF;
+    -fx-border-color: #FDC373;
+}
+
+.check : hover{
+    -fx-background-color: #FFE9BF;
+    -fx-border-color: #FDC373;
+    -fx-check-mark-color: "#FDC373";
+}
+
+.check .box : pressed{
+    -fx-background-color: #FFE9BF;
+    -fx-border-color: #FDC373;
+}
+
+
+/*BOTON ENVIAR - REGISTRO NUEVO PACIENTE -*/
+.button-guardar{
+    -fx-background-color: #29838C;
+    -fx-text-fill: #C6E9DE;
+    -fx-font-size: 16;
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+.button-guardar:hover{
+    -fx-background-color: #23737A;
+    -fx-text-fill: #C6E9DE;
+}
+
+.button-guardar:pressed{
+    -fx-background-color: #C4E8DD;
+    -fx-text-fill: #29838C;
+}
+
+/*CHOICEBOX */
+.choice-box{
+    -fx-font-size: 14;
+    -fx-background-color: D3F9EB;
+    -fx-text-fill: #123440;
+    -fx-font-family: "Playfair Display Regular";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+
+/*ventana desplegable de choice-box*/
+
+.choice-box .menu-item{
+    -fx-font-size: 14;
+    -fx-background-color: D3F9EB;
+    -fx-text-fill: #123440;
+    -fx-font-family: "Playfair Display Regular";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+
+.choice-box .menu-item:hover .label {
+    -fx-text-fill: #29838C;
+}
+
+.choice-box .menu-item: selected .text{
+    -fx-text-fill: #29838C;
+}
+
+
+/*TABLAS estilo */
+.table-view {
+    -fx-background-color: #D3F9EB;
+    -fx-text-fill: #29838C;
+    -fx-font-size: 14;
+    -fx-alignment: center;
+    -fx-font-style: normal;
+    -fx-border-color: #184752;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+    -fx-margin: 0;
+}
+
+.table-view .column-header .label {
+    -fx-background-color: #184752;
+    -fx-text-fill: #D3F9EB;
+    -fx-font-size: 16;
+    -fx-font-style: normal;
+    -fx-border-color: #23737A;
+    -fx-border-width: 2;
+    -fx-padding: 0;
+    -fx-margin: 0;
+}
+
+/*COLUMNAS */
+
+.table-column {
+    -fx-margin: 0;
+    -fx-padding: 0;
+    -fx-border-color: #23737A;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+}
+
+.table-row-cell {
+    -fx-background-color: #C6E9DE;
+    -fx-text-fill: #29838C;
+    -fx-font-size: 16;
+}
+
+.table-row-cell:hover{
+    -fx-text-fill: #29838C;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #29838C; /* Reemplaza #29838C con el color deseado */
+}
+
+.table-row-cell:odd { /*impar*/
+    -fx-background-color: #c4e8dd;
+    -fx-font-size: 14;
+}
+
+.table-row-cell:even { /*par*/
+    -fx-background-color: #b4d4ca;
+    -fx-font-size: 14;
+}
+
+/*PRUEBA MODIFICACION BARRA DE TITULO*/
+
+/*SUCCESS ALERT*/
+
+.success-alert {
+    -fx-background-color: #D3F9EB;
+    -fx-border-color: #29838C;
+}
+
+.success-alert > .content.label{
+    -fx-text-fill: #184752;
+    -fx-font-size: 17;
+    -fx-font-family: "NanumGothic";
+}
+
+/*SUCCESS ALERT - BUTTON*/
+
+.success-alert .button-bar .button{
+    -fx-font-size: 17;
+    -fx-background-color: "#29838c";
+    -fx-text-fill: "#c6e9de";
+    -fx-font-family: "NanumGothicBold";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+
+.success-alert .button-bar .button:hover{
+    -fx-background-color: "#23737A";
+}
+
+.success-alert .button-bar .button:pressed{
+    -fx-background-color: "#C4E8DD";
+    -fx-text-fill: "#29838c";
+}
+
+/*ERROR ALERT*/
+
+.error-alert{
+    -fx-background-color: #184752;
+    -fx-border-color: #29838C;
+}
+
+.error-alert > .content.label{
+    -fx-text-fill: #D3F9EB;
+    -fx-font-size: 17;
+    -fx-font-family: "NanumGothic";
+}
+
+/*ERROR ALERT - BUTTON*/
+
+.error-alert .button-bar .button{
+    -fx-font-size: 17;
+    -fx-background-color: "#c6e9de";
+    -fx-text-fill: "#29838c";
+    -fx-font-family: "NanumGothicBold";
+    -fx-background-width: 175;
+    -fx-background-height: 25;
+}
+
+.error-alert .button-bar .button:hover{
+    -fx-background-color: "#b4d4ca";
+}
+
+.error-alert .button-bar .button:pressed{
+    -fx-background-color: "#29838c";
+    -fx-text-fill: "#c6e9de";
+}
+
+/*ERROR ALERT - TOOL BAR*/
+
+/*BUTTON CLOSE TOOLBAR */
+
+.close-button{
+-fx-background-color: #091A21;
+ -fx-text-fill: #FDC373;
+  -fx-width: 20;
+   -fx-height: 20;
+    -fx-layout-x: 1040;
+     -fx-layout-y: 1;
+
+
+}
+
+.close-button : hover{
+    -fx-background-color: #EE1910;
+}
+
+
+.tool-bar > .window-buttons > .close-button:hover {
+    -fx-background-color: #EE1910;
+}
+
+.tool-bar > .window-buttons > .close-button:pressed {
+    -fx-background-color: #DD1910;
+}
+
+.window-buttons .close-button : hover{
+    -fx-background-color: #EE1910;
+}
+
+.window-buttons .close-button : pressed{
+    -fx-background-color: #DD1910;
+}

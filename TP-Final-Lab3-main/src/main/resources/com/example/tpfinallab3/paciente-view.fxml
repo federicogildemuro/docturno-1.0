@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@../../../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tpfinallab3.controllers.PacienteViewController">
+    <left>
+        <AnchorPane prefHeight="720.0" prefWidth="270.0" style="-fx-background-color: #29838c;" BorderPane.alignment="CENTER">
+            <children>
+            <ImageView fitHeight="720.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/fondo270x720.png" />
+               </image>
+            </ImageView>
+                <Label alignment="CENTER" layoutY="20.0" prefHeight="17.0" prefWidth="270.0" styleClass="cinzel-regular" text="Paciente" textFill="#ffe9bf">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Label>
+                <Label fx:id="myProfileButton" alignment="CENTER" layoutX="45.0" layoutY="115.0" onMouseClicked="#miPerfilAction" text="Mi perfil" textFill="#d3f9eb">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <styleClass>
+                        <String fx:value="nanum-regular" />
+                        <String fx:value="profile-button" />
+                    </styleClass>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <graphic>
+                  <Separator prefWidth="20.0" />
+               </graphic>
+                </Label>
+                <Label fx:id="appointmentListButton" alignment="CENTER" layoutX="45.0" layoutY="155.0" onMouseClicked="#verTurnosAction" text="Ver turnos" textFill="#d3f9eb">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <styleClass>
+                        <String fx:value="nanum-regular" />
+                        <String fx:value="profile-button" />
+                    </styleClass>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <graphic>
+                  <Separator prefWidth="20.0" />
+               </graphic>
+                </Label>
+                <Label fx:id="addAppointmentButton" alignment="CENTER" layoutX="45.0" layoutY="195.0" onMouseClicked="#pedirTurnosAction" text="Pedir turno">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                    <styleClass>
+                        <String fx:value="nanum-regular" />
+                        <String fx:value="profile-button" />
+                    </styleClass>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <graphic>
+                  <Separator prefWidth="20.0" />
+               </graphic>
+                </Label>
+            <Label fx:id="logoutPacienteButton" alignment="CENTER" layoutX="45.0" layoutY="235.0" onMouseClicked="#logoutPaciente" text="Cerrar sesión">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="nanum-regular" />
+                  <String fx:value="profile-button" />
+               </styleClass>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <Separator prefWidth="20.0" />
+               </graphic>
+            </Label>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="720.0" prefWidth="810.0" style="-fx-background-color: #d3f9eb;" BorderPane.alignment="CENTER">
+            <children>
+            <ImageView fitHeight="720.0" fitWidth="810.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/fondoClaro810x720.png" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="bienvenidoUserPanel" layoutX="135.0" layoutY="145.0" opacity="0.9" prefHeight="350.0" prefWidth="540.0" style="-fx-background-color: #123440; -fx-border-color: #FDC373; -fx-border-width: 6;">
+               <children>
+                  <Label layoutX="81.0" layoutY="45.0" styleClass="cinzel-regular" text="¡Bienvenido!" textFill="#d3f9eb">
+                     <font>
+                        <Font name="Cinzel Decorative Regular" size="56.0" />
+                     </font>
+                  </Label>
+                        <Label fx:id="pacienteUserName" alignment="CENTER" layoutX="12.0" layoutY="158.0" prefWidth="516.0" styleClass="cinzel-regular" text="Paciente" textFill="#d3f9eb">
+                            <font>
+                                <Font name="Cinzel Decorative Regular" size="40.0" />
+                            </font>
+                        </Label>
+               </children>
+            </AnchorPane>
+                <AnchorPane fx:id="profilePacientePanel" layoutX="135.0" prefHeight="720.0" prefWidth="540.0" visible="false">
+                    <children>
+                  <Label layoutX="168.0" layoutY="20.0" styleClass="cinzel-regular" text="Mi Perfil">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+                        <AnchorPane fx:id="profileDataPacientePanel" layoutY="145.0" opacity="0.9" prefHeight="350.0" prefWidth="540.0" style="-fx-background-color: #123440; -fx-border-color: #FDC373; -fx-border-width: 6;">
+                            <children>
+                              <Label layoutX="153.0" layoutY="37.0" styleClass="playfair-regular" text="Nombre:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="nombrePacienteLabel" layoutX="233.0" layoutY="37.0" styleClass="playfair-regular" text="Nombre." textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                              <Label layoutX="153.0" layoutY="72.0" styleClass="playfair-regular" text="Apellido:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="apellidoPacienteLabel" layoutX="234.0" layoutY="72.0" styleClass="playfair-regular" text="Apellido." textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="nroDocumentoPaciente" layoutX="153.0" layoutY="107.0" styleClass="playfair-regular" text="DNI:" textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="nroDocumentoPacienteLabel" layoutX="197.0" layoutY="107.0" styleClass="playfair-regular" text="14725836" textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                              <Label layoutX="153.0" layoutY="142.0" styleClass="playfair-regular" text="Telefono:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="telefonoPacienteLabel" layoutX="238.0" layoutY="142.0" styleClass="playfair-regular" text="1234-5678" textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                              <Label layoutX="153.0" layoutY="177.0" styleClass="playfair-regular" text="Email:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="emailPacienteLabel" layoutX="212.0" layoutY="177.0" styleClass="playfair-regular" text="emailexample@gmail.com" textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                              <Label layoutX="153.0" layoutY="210.0" styleClass="playfair-regular" text="Obra social:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="obraSocialPacienteLabel" layoutX="260.0" layoutY="210.0" styleClass="playfair-regular" text="Obra social." textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                              <Label layoutX="153.0" layoutY="245.0" styleClass="playfair-regular" text="Nº Afiliado:" textFill="#d3f9eb">
+                                  <font>
+                                      <Font size="19.0" />
+                                  </font>
+                              </Label>
+                                <Label fx:id="nroAfiliadoPacienteLabel" layoutX="256.0" layoutY="245.0" styleClass="playfair-regular" text="12345" textFill="#d3f9eb">
+                                    <font>
+                                        <Font size="19.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="editPacienteButton" layoutX="353.0" layoutY="300.0" mnemonicParsing="false" onAction="#editarDatosPacienteEvent" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 0;" text="Editar">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="button-oscuro" />
+                              <String fx:value="nanum-bold" />
+                           </styleClass></Button>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="editProfilePacientePanel" layoutY="110.0" prefHeight="580.0" prefWidth="540.0" style="-fx-border-color: #FFE9BF; -fx-border-width: 6;" visible="false">
+                            <children>
+                        <Label layoutX="90.0" layoutY="41.0" styleClass="nanum-regular" text="Nombre" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editNombrePacienteField" layoutX="90.0" layoutY="66.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="90.0" layoutY="106.0" styleClass="nanum-regular" text="Apellido" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editApellidoPacienteField" layoutX="90.0" layoutY="131.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="90.0" layoutY="171.0" styleClass="nanum-regular" text="Correo electrónico" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editEmailPacienteField" layoutX="90.0" layoutY="196.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="90.0" layoutY="236.0" styleClass="nanum-regular" text="Teléfono" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editTelefonoPacienteField" layoutX="90.0" layoutY="261.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="90.0" layoutY="301.0" styleClass="nanum-regular" text="Obra social" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editObraSocPacienteField" layoutX="90.0" layoutY="326.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                        <Label layoutX="90.0" layoutY="366.0" styleClass="nanum-regular" text="Número de afiliado" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                                <TextField fx:id="editNroAfiliadoPacienteField" layoutX="90.0" layoutY="391.0" prefHeight="34.0" prefWidth="360.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular">
+                           <font>
+                              <Font size="14.0" />
+                           </font></TextField>
+                                <Label fx:id="newPasswordPacienteLabel" layoutX="90.0" layoutY="431.0" styleClass="nanum-regular" text="Contraseña" textFill="#29838c">
+                                    <font>
+                                        <Font size="16.0" />
+                                    </font>
+                                </Label>
+                                <PasswordField fx:id="newPasswordPacienteField" layoutX="90.0" layoutY="456.0" prefHeight="34.0" prefWidth="321.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;">
+                           <font>
+                              <Font size="14.0" />
+                           </font></PasswordField>
+                        <TextField fx:id="plainNewPasswordPacienteField" layoutX="90.0" layoutY="456.0" prefHeight="34.0" prefWidth="321.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2; -fx-font-size: 14;" styleClass="playfair-regular" visible="false" />
+                        <AnchorPane layoutX="410.0" layoutY="456.0" prefHeight="34.0" prefWidth="35.0" style="-fx-border-color: #29838C; -fx-border-width: 2;">
+                           <children>
+                              <ImageView fx:id="mostrarNewPasswordEditarPacienteButton" accessibleRole="BUTTON" fitHeight="24.0" fitWidth="32.0" layoutX="4.0" layoutY="6.0" onMouseClicked="#ocultarPassword" pickOnBounds="true" visible="false">
+                                 <image>
+                                    <Image url="@../../../images/abrir-ojo.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="ocultarNewPasswordEditarPacienteButton" accessibleRole="BUTTON" fitHeight="17.0" fitWidth="32.0" layoutX="4.0" layoutY="9.0" onMouseClicked="#mostrarPassword" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../images/cerrar-ojo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                                <Button fx:id="submitChangesPacienteButton" layoutX="183.0" layoutY="526.0" mnemonicParsing="false" onAction="#guardarDatosPacienteEvent" prefHeight="25.0" prefWidth="175.0" style="-fx-background-radius: 0;" text="Guardar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="button-guardar" />
+                              <String fx:value="nanum-bold" />
+                           </styleClass>
+                        </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="misTurnosPacienteView" prefHeight="720.0" prefWidth="810.0" visible="false">
+                    <children>
+                  <Label layoutX="269.0" layoutY="20.0" styleClass="cinzel-regular" text="Ver Turnos" textFill="#123440">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+                        <AnchorPane fx:id="misTurnosPacientePanel" layoutX="10.0" layoutY="170.0" prefHeight="250.0" prefWidth="270.0" style="-fx-border-color: #FFE9BF; -fx-border-width: 6;">
+                            <children>
+                                <Label layoutX="13.0" layoutY="24.0" styleClass="nanum-bold" text="Especialidad:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="especialidadMiTurnoPacienteLabel" layoutX="126.0" layoutY="24.0" styleClass="nanum-regular" text="Especialidad." textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="64.0" styleClass="nanum-bold" text="Doctor:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="medicoMiTurnoPacienteLabel" layoutX="81.0" layoutY="64.0" styleClass="nanum-regular" text="Medico." textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="104.0" styleClass="nanum-bold" text="Fecha:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="fechaMiTurnoPacienteLabel" layoutX="72.0" layoutY="104.0" styleClass="nanum-regular" text="dd/mm/aaaa" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="144.0" styleClass="nanum-bold" text="Hora:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="horaMiTurnoPacienteLabel" layoutX="64.0" layoutY="144.0" styleClass="nanum-regular" text="hh:mm" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="cancelarTurnoPacienteButton" layoutX="55.0" layoutY="202.0" mnemonicParsing="false" onMouseClicked="#cancelarTurnoAction" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 0;" text="Cancelar Turno" translateZ="-1.0">
+                           <styleClass>
+                              <String fx:value="button-oscuro" />
+                              <String fx:value="nanum-bold" />
+                           </styleClass></Button>
+                            </children>
+                        </AnchorPane>
+                        <TableView fx:id="tablaMisTurnosPaciente" layoutX="290.0" layoutY="145.0" onMouseClicked="#seleccionarMisTurnosAction" prefHeight="537.0" prefWidth="510.0">
+                            <columns>
+                                <TableColumn fx:id="columnaFechaMiTurnoPaciente" prefWidth="120.0" text="Fecha" />
+                                <TableColumn fx:id="columnaHoraMiTurnoPaciente" prefWidth="120.0" text="Hora" />
+                                <TableColumn fx:id="columnaEspMiTurnoPaciente" prefWidth="120.0" text="Especialidad" />
+                                <TableColumn fx:id="columnaMedicoMiTurnoPaciente" prefWidth="120.0" text="Medico" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="pedirTurnoPacienteView" prefHeight="720.0" prefWidth="810.0" visible="false">
+                    <children>
+                  <Label layoutX="257.0" layoutY="20.0" styleClass="cinzel-regular" text="Pedir Turno" textFill="#123440">
+                     <font>
+                        <Font size="42.0" />
+                     </font>
+                  </Label>
+                        <AnchorPane fx:id="pedirTurnoPacientePanel" layoutX="10.0" layoutY="170.0" prefHeight="470.0" prefWidth="270.0" style="-fx-border-color: #FFE9BF; -fx-border-width: 6;">
+                            <children>
+                                <Label layoutX="37.0" layoutY="36.0" styleClass="nanum-bold" text="Seleccione una especialidad:" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                                <ChoiceBox fx:id="especialidadPacienteChoiceBox" layoutX="52.0" layoutY="71.0" onMouseClicked="#filtrarEspecialidadAction" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2;" styleClass="playfair-regular" />
+                                <Label layoutX="59.0" layoutY="126.0" styleClass="nanum-bold" text="Seleccione un médico:" textFill="#29838c">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                                <ChoiceBox fx:id="medicoPacienteChoiceBox" layoutX="52.0" layoutY="161.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #D3F9EB; -fx-border-color: #29838C; -fx-border-width: 2;" styleClass="playfair-regular" />
+                                <Label layoutX="13.0" layoutY="226.0" styleClass="nanum-bold" text="Especialidad:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="especialidadTurnoPacienteLabel" layoutX="126.0" layoutY="226.0" styleClass="nanum-regular" text="Especialidad" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="266.0" styleClass="nanum-bold" text="Doctor:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="medicoTurnoPacienteLabel" layoutX="81.0" layoutY="266.0" styleClass="nanum-regular" text="Medico" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="306.0" styleClass="nanum-bold" text="Fecha:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="fechaTurnoPacienteLabel" layoutX="72.0" layoutY="306.0" styleClass="nanum-regular" text="dd/mm/aaaa" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="13.0" layoutY="346.0" styleClass="nanum-bold" text="Hora:" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="horaTurnoPacienteLabel" layoutX="64.0" layoutY="346.0" styleClass="nanum-regular" text="hh:mm" textFill="#29838c">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Button fx:id="pedirTurnoPacienteButton" layoutX="57.0" layoutY="413.0" mnemonicParsing="false" onAction="#solicitarTurnoAction" prefHeight="25.0" prefWidth="170.0" style="-fx-background-radius: 0;" text="Confirmar Turno">
+                           <styleClass>
+                              <String fx:value="button-oscuro" />
+                              <String fx:value="nanum-bold" />
+                           </styleClass></Button>
+                            </children>
+                        </AnchorPane>
+                        <TableView fx:id="tablaTurnosPaciente" layoutX="290.0" layoutY="145.0" onMouseClicked="#seleccionarUnTurnoAction" prefHeight="537.0" prefWidth="510.0">
+                            <columns>
+                                <TableColumn fx:id="columnaFechaTurnoPaciente" prefWidth="120.0" text="Fecha" />
+                                <TableColumn fx:id="columnaHoraTurnoPaciente" prefWidth="120.0" text="Hora" />
+                                <TableColumn fx:id="columnaEspecialidadTurnoPaciente" prefWidth="120.0" text="Especialidad" />
+                                <TableColumn fx:id="columnaMedicoTurnoPaciente" prefWidth="120.0" text="Medico" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
